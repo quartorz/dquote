@@ -1,0 +1,277 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>index_tuple.hpp &mdash; quote 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="quote 1.0.0 documentation" href="../index.html" />
+    <link rel="up" title="tmp名前空間" href="index.html" />
+    <link rel="next" title="tautology.hpp" href="tautology.hpp.html" />
+    <link rel="prev" title="tmp名前空間" href="index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tautology.hpp.html" title="tautology.hpp"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="tmp名前空間"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">quote 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">tmp名前空間</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="index-tuple-hpp">
+<h1>index_tuple.hpp<a class="headerlink" href="#index-tuple-hpp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="index-tuple">
+<span id="tmp-index-tuple"></span><h2>index_tupleクラス<a class="headerlink" href="#index-tuple" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>宣言<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span> <span class="n">I</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">index_tuple</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>概要<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>index_tupleイディオムの為のテンプレートクラス</p>
+</div>
+<div class="section" id="id3">
+<h3>テンプレート引数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="76%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">引数名</th>
+<th class="head">意味</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>std::size_t... I</td>
+<td>添字</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h3>メンバ<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="type">
+<dt id="index_tuple:I:::type">
+<em class="property">type </em><tt class="descclassname">index_tuple&lt;I...&gt;::</tt><tt class="descname">type</tt><a class="headerlink" href="#index_tuple:I:::type" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">index_tuple&lt;I...&gt;</span></tt> 自身の <tt class="docutils literal"><span class="pre">typedef</span></tt></p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="concat-impl">
+<span id="tmp-concat-impl"></span><h2>concat_implクラス<a class="headerlink" href="#concat-impl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>宣言<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Left</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Right</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">concat_impl</span><span class="p">;</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span> <span class="n">Left</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span> <span class="n">Right</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">concat_impl</span><span class="o">&lt;</span><span class="n">index_tuple</span><span class="o">&lt;</span><span class="n">Left</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">index_tuple</span><span class="o">&lt;</span><span class="n">Right</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>概要<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>2つのテンプレート引数が <a class="reference internal" href="#tmp-index-tuple"><em>index_tuple</em></a> の時、2つの <a class="reference internal" href="#tmp-index-tuple"><em>index_tuple</em></a> を連結した物(<tt class="docutils literal"><span class="pre">index_tuple&lt;Left...,</span> <span class="pre">Right...&gt;</span></tt>)を継承する。</p>
+</div>
+</div>
+<div class="section" id="concat">
+<span id="tmp-concat"></span><h2>concatエイリアステンプレート<a class="headerlink" href="#concat" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>宣言<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Left</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Right</span><span class="o">&gt;</span>
+<span class="k">using</span> <span class="n">concat</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">concat_impl</span><span class="o">&lt;</span><span class="n">Left</span><span class="p">,</span> <span class="n">Right</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="make-filtered-index-range">
+<span id="tmp-make-filtered-index-range"></span><h2>make_filtered_index_rangeエイリアステンプレート<a class="headerlink" href="#make-filtered-index-range" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>宣言<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span> <span class="o">&lt;::</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">Filter</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">Begin</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">End</span><span class="o">&gt;</span>
+<span class="k">using</span> <span class="n">make_filtered_index_range</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">make_filtered_index_range_impl</span><span class="o">&lt;</span><span class="n">Filter</span><span class="p">,</span> <span class="n">Begin</span><span class="p">,</span> <span class="n">End</span> <span class="o">-</span> <span class="n">Begin</span><span class="p">,</span> <span class="kt">void</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>概要<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">[Begin,</span> <span class="pre">End)</span></tt> の範囲で <a class="reference internal" href="../terms/filter.html#term-filter"><em>Filter</em></a> が <tt class="docutils literal"><span class="pre">true</span></tt> を返す値を並べた <a class="reference internal" href="#tmp-index-tuple"><em>index_tuple</em></a> を返すメタ関数。</p>
+</div>
+</div>
+<div class="section" id="make-filtered-index">
+<h2>make_filtered_indexエイリアステンプレート<a class="headerlink" href="#make-filtered-index" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>概要<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="#tmp-make-filtered-index-range"><em>make_filtered_index_range</em></a> の <tt class="docutils literal"><span class="pre">Begin</span></tt> を <tt class="docutils literal"><span class="pre">0</span></tt> に固定したやつ。</div>
+<div class="line"><tt class="docutils literal"><span class="pre">index_tuple&lt;0,</span> <span class="pre">...,</span> <span class="pre">N</span> <span class="pre">-</span> <span class="pre">1&gt;</span></tt>。</div>
+</div>
+</div>
+</div>
+<div class="section" id="make-index-range">
+<h2>make_index_rangeエイリアステンプレート<a class="headerlink" href="#make-index-range" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3>宣言<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">Begin</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">End</span><span class="o">&gt;</span>
+<span class="k">using</span> <span class="n">make_index_range</span> <span class="o">=</span> <span class="n">make_filtered_index_range</span><span class="o">&lt;</span><span class="n">tautological_filter</span><span class="p">,</span> <span class="n">Begin</span><span class="p">,</span> <span class="n">End</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>概要<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">[Begin,</span> <span class="pre">End)</span></tt> をテンプレート引数に持つ <a class="reference internal" href="#tmp-index-tuple"><em>index_tuple</em></a> を返すメタ関数。</p>
+</div>
+<div class="section" id="id13">
+<h3>参考<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="tautology.hpp.html#tmp-tautological-filter"><em>tautological_filter</em></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="make-index">
+<h2>make_indexエイリアステンプレート<a class="headerlink" href="#make-index" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>概要<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">N</span> <span class="pre">-</span> <span class="pre">1)</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">index_tuple.hpp</a><ul>
+<li><a class="reference internal" href="#index-tuple">index_tupleクラス</a><ul>
+<li><a class="reference internal" href="#id1">宣言</a></li>
+<li><a class="reference internal" href="#id2">概要</a></li>
+<li><a class="reference internal" href="#id3">テンプレート引数</a></li>
+<li><a class="reference internal" href="#id4">メンバ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#concat-impl">concat_implクラス</a><ul>
+<li><a class="reference internal" href="#id5">宣言</a></li>
+<li><a class="reference internal" href="#id6">概要</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#concat">concatエイリアステンプレート</a><ul>
+<li><a class="reference internal" href="#id7">宣言</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#make-filtered-index-range">make_filtered_index_rangeエイリアステンプレート</a><ul>
+<li><a class="reference internal" href="#id8">宣言</a></li>
+<li><a class="reference internal" href="#id9">概要</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#make-filtered-index">make_filtered_indexエイリアステンプレート</a><ul>
+<li><a class="reference internal" href="#id10">概要</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#make-index-range">make_index_rangeエイリアステンプレート</a><ul>
+<li><a class="reference internal" href="#id11">宣言</a></li>
+<li><a class="reference internal" href="#id12">概要</a></li>
+<li><a class="reference internal" href="#id13">参考</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#make-index">make_indexエイリアステンプレート</a><ul>
+<li><a class="reference internal" href="#id14">概要</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">tmp名前空間</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tautology.hpp.html"
+                        title="next chapter">tautology.hpp</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tautology.hpp.html" title="tautology.hpp"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="tmp名前空間"
+             >previous</a> |</li>
+        <li><a href="../index.html">quote 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >tmp名前空間</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, quarter(quartorz).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

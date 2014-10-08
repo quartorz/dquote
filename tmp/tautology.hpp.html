@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tautology.hpp &mdash; quote 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="quote 1.0.0 documentation" href="../index.html" />
+    <link rel="up" title="tmp名前空間" href="index.html" />
+    <link rel="next" title="applier.hpp" href="applier.hpp.html" />
+    <link rel="prev" title="index_tuple.hpp" href="index_tuple.hpp.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="applier.hpp.html" title="applier.hpp"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index_tuple.hpp.html" title="index_tuple.hpp"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">quote 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">tmp名前空間</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="tautology-hpp">
+<h1>tautology.hpp<a class="headerlink" href="#tautology-hpp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tautological-pred">
+<span id="tmp-tautological-pred"></span><h2>tautological_predクラス<a class="headerlink" href="#tautological-pred" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>宣言<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Type</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">tautological_pred</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>概要<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>常に <tt class="docutils literal"><span class="pre">true</span></tt> を返す <em class="xref std std-ref">pred</em>。</p>
+</div>
+<div class="section" id="id3">
+<h3>メンバ<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="member">
+<dt id="tautological_pred:Type:::value__bC">
+<em class="property">static</em> const bool <tt class="descclassname">tautological_pred&lt;Type&gt;::</tt><tt class="descname">value</tt><a class="headerlink" href="#tautological_pred:Type:::value__bC" title="Permalink to this definition">¶</a></dt>
+<dd><p>常に <tt class="docutils literal"><span class="pre">true</span></tt></p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="tautological-filter">
+<span id="tmp-tautological-filter"></span><h2>tautological_filterクラス<a class="headerlink" href="#tautological-filter" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>宣言<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">Value</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">tautological_filter</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>概要<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>常に <tt class="docutils literal"><span class="pre">true</span></tt> を返す <a class="reference internal" href="../terms/filter.html#term-filter"><em>filter</em></a>。</p>
+</div>
+<div class="section" id="id6">
+<h3>メンバ<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<dl class="member">
+<dt id="tautological_filter:Value:::value__bC">
+<em class="property">static</em> const bool <tt class="descclassname">tautological_filter&lt;Value&gt;::</tt><tt class="descname">value</tt><a class="headerlink" href="#tautological_filter:Value:::value__bC" title="Permalink to this definition">¶</a></dt>
+<dd><p>常に <tt class="docutils literal"><span class="pre">true</span></tt></p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">tautology.hpp</a><ul>
+<li><a class="reference internal" href="#tautological-pred">tautological_predクラス</a><ul>
+<li><a class="reference internal" href="#id1">宣言</a></li>
+<li><a class="reference internal" href="#id2">概要</a></li>
+<li><a class="reference internal" href="#id3">メンバ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tautological-filter">tautological_filterクラス</a><ul>
+<li><a class="reference internal" href="#id4">宣言</a></li>
+<li><a class="reference internal" href="#id5">概要</a></li>
+<li><a class="reference internal" href="#id6">メンバ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index_tuple.hpp.html"
+                        title="previous chapter">index_tuple.hpp</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="applier.hpp.html"
+                        title="next chapter">applier.hpp</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="applier.hpp.html" title="applier.hpp"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index_tuple.hpp.html" title="index_tuple.hpp"
+             >previous</a> |</li>
+        <li><a href="../index.html">quote 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >tmp名前空間</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, quarter(quartorz).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

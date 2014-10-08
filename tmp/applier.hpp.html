@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>applier.hpp &mdash; quote 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="quote 1.0.0 documentation" href="../index.html" />
+    <link rel="up" title="tmp名前空間" href="index.html" />
+    <link rel="prev" title="tautology.hpp" href="tautology.hpp.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tautology.hpp.html" title="tautology.hpp"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">quote 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">tmp名前空間</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="applier-hpp">
+<h1>applier.hpp<a class="headerlink" href="#applier-hpp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="applier">
+<span id="tmp-applier"></span><h2>applierクラス<a class="headerlink" href="#applier" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>宣言<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span>... <span class="nc">Types</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">applier</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>概要<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">std::tuple</span></tt> を包含する関数オブジェクト。</div>
+<div class="line">1つ目の引数に関数オブジェクトを渡すと、渡された関数オブジェクトをタプルの各要素に適用し、各結果のタプルを返す。</div>
+<div class="line"><a class="reference internal" href="#tmp-make-applier"><em>make_applier</em></a> を用いてオブジェクトを生成することができる。</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>テンプレート引数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">引数名</th>
+<th class="head">意味</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">class...</span> <span class="pre">Types</span></tt></td>
+<td>保持したい要素の型</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h3>メンバ<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="applier::::applier">
+ <tt class="descclassname">applier&lt;&gt;::</tt><tt class="descname">applier</tt><big>(</big><big>)</big><a class="headerlink" href="#applier::::applier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="applier:Types:::applier__Types">
+ <tt class="descclassname">applier&lt;Types...&gt;::</tt><tt class="descname">applier</tt><big>(</big>Types... <em>args</em><big>)</big><a class="headerlink" href="#applier:Types:::applier__Types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="applier:Types:::applier__std::tuple:Types:">
+ <tt class="descclassname">applier&lt;Types...&gt;::</tt><tt class="descname">applier</tt><big>(</big>std::tuple&lt;Types...&gt; <em>arg</em><big>)</big><a class="headerlink" href="#applier:Types:::applier__std::tuple:Types:" title="Permalink to this definition">¶</a></dt>
+<dd><p>コンストラクタ。</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="applier:Types:::get">
+std::tuple&lt;Types...&gt;&amp; <tt class="descclassname">applier&lt;Types...&gt;::</tt><tt class="descname">get</tt><big>(</big><big>)</big><a class="headerlink" href="#applier:Types:::get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="applier:Types:::getC">
+const std::tuple&lt;Types...&gt;&amp; <tt class="descclassname">applier&lt;Types...&gt;::</tt><tt class="descname">get</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#applier:Types:::getC" title="Permalink to this definition">¶</a></dt>
+<dd><p>包含しているタプルを得る。</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="applier:Types:::call-operator__Function.Args">
+<a class="reference internal" href="#applier:Types:::result_tuple:Function.Args:" title="applier&lt;Types...&gt;::result_tuple&lt;Function, Args...&gt;">applier&lt;Types...&gt;::result_tuple&lt;Function, Args...&gt;</a> <tt class="descclassname">applier&lt;Types...&gt;::</tt><tt class="descname">operator()</tt><big>(</big>Function <em>func</em>, Args... <em>args</em><big>)</big><a class="headerlink" href="#applier:Types:::call-operator__Function.Args" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">タプルの各要素を1つ目の引数、 <tt class="docutils literal"><span class="pre">args...</span></tt> を2つ目以降の引数として <tt class="docutils literal"><span class="pre">func</span></tt> を呼び出す。</div>
+<div class="line"><tt class="docutils literal"><span class="pre">std::size_t...</span> <span class="pre">Indices</span></tt> が <tt class="docutils literal"><span class="pre">0,</span> <span class="pre">...,</span> <span class="pre">(sizeof...(Types)</span> <span class="pre">-</span> <span class="pre">1)</span></tt> だとすると <tt class="docutils literal"><span class="pre">result_tuple&lt;Function,</span> <span class="pre">Args...&gt;(func(std::get&lt;Indices&gt;(get()),</span> <span class="pre">args...)...)</span></tt>。</div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="applier:Types:::result_tuple:Function.Args:">
+<em class="property">type </em><tt class="descclassname">applier&lt;Types...&gt;::</tt><tt class="descname">result_tuple&lt;Function, Args...&gt;</tt><a class="headerlink" href="#applier:Types:::result_tuple:Function.Args:" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">Function</span></tt> 型の関数オブジェクトを、 包含するタプルの各要素を1つ目の引数、 <tt class="docutils literal"><span class="pre">Args...</span></tt> 型オブジェクトを2つ目以降の引数として呼び出した時の結果をタプルにしたもの。</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="make-applier">
+<span id="tmp-make-applier"></span><h2>make_applier関数<a class="headerlink" href="#make-applier" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>宣言<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span>... <span class="nc">Types</span><span class="o">&gt;</span>
+<span class="n">applier</span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">make_applier</span><span class="p">(</span><span class="n">Types</span><span class="p">...</span> <span class="n">objects</span><span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span>... <span class="nc">Types</span><span class="o">&gt;</span>
+<span class="n">applier</span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">make_applier</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">objects</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>概要<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#tmp-applier"><em>applier</em></a> の構築を補助する関数</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">applier.hpp</a><ul>
+<li><a class="reference internal" href="#applier">applierクラス</a><ul>
+<li><a class="reference internal" href="#id1">宣言</a></li>
+<li><a class="reference internal" href="#id2">概要</a></li>
+<li><a class="reference internal" href="#id3">テンプレート引数</a></li>
+<li><a class="reference internal" href="#id4">メンバ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#make-applier">make_applier関数</a><ul>
+<li><a class="reference internal" href="#id5">宣言</a></li>
+<li><a class="reference internal" href="#id6">概要</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tautology.hpp.html"
+                        title="previous chapter">tautology.hpp</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tautology.hpp.html" title="tautology.hpp"
+             >previous</a> |</li>
+        <li><a href="../index.html">quote 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >tmp名前空間</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, quarter(quartorz).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

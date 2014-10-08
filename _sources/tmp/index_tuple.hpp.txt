@@ -1,0 +1,130 @@
+===============
+index_tuple.hpp
+===============
+
+.. _tmp-index_tuple:
+
+index_tupleクラス
+=================
+
+宣言
+----
+
+.. sourcecode:: cpp
+
+  template <std::size_t... I>
+  class index_tuple;
+
+概要
+----
+
+index_tupleイディオムの為のテンプレートクラス
+
+
+テンプレート引数
+----------------
+
+=================== ======
+引数名              意味
+=================== ======
+std::size_t... I    添字
+=================== ======
+
+メンバ
+------
+
+.. cpp:type:: index_tuple<I...>::type
+
+  ``index_tuple<I...>`` 自身の ``typedef``
+
+.. _tmp-concat_impl:
+
+concat_implクラス
+=================
+
+宣言
+----
+
+.. sourcecode:: cpp
+
+  template <class Left, class Right>
+  class concat_impl;
+  template <std::size_t... Left, std::size_t... Right>
+  class concat_impl<index_tuple<Left...>, index_tuple<Right...>>;
+
+概要
+----
+
+2つのテンプレート引数が :ref:`index_tuple <tmp-index_tuple>` の時、2つの :ref:`index_tuple <tmp-index_tuple>` を連結した物(``index_tuple<Left..., Right...>``)を継承する。
+
+.. _tmp-concat:
+
+concatエイリアステンプレート
+============================
+
+宣言
+----
+
+.. sourcecode:: cpp
+
+  template <class Left, class Right>
+  using concat = typename concat_impl<Left, Right>::type;
+
+.. _tmp-make_filtered_index_range:
+
+make_filtered_index_rangeエイリアステンプレート
+===============================================
+
+宣言
+----
+
+.. sourcecode:: cpp
+
+  template <template <::std::size_t> class Filter, std::size_t Begin, std::size_t End>
+  using make_filtered_index_range = typename make_filtered_index_range_impl<Filter, Begin, End - Begin, void>::type;
+
+概要
+----
+
+``[Begin, End)`` の範囲で :ref:`Filter <term-filter>` が ``true`` を返す値を並べた :ref:`index_tuple <tmp-index_tuple>` を返すメタ関数。
+
+.. tmp-make_filtered_index:
+
+make_filtered_indexエイリアステンプレート
+=========================================
+
+概要
+----
+| :ref:`make_filtered_index_range <tmp-make_filtered_index_range>` の ``Begin`` を ``0`` に固定したやつ。
+| ``index_tuple<0, ..., N - 1>``。
+
+.. tmp-make_index_range:
+
+make_index_rangeエイリアステンプレート
+======================================
+
+宣言
+----
+
+.. sourcecode:: cpp
+
+  template <std::size_t Begin, std::size_t End>
+  using make_index_range = make_filtered_index_range<tautological_filter, Begin, End>;
+
+概要
+----
+
+``[Begin, End)`` をテンプレート引数に持つ :ref:`index_tuple <tmp-index_tuple>` を返すメタ関数。
+
+参考
+----
+
+* :ref:`tautological_filter <tmp-tautological_filter>`
+
+make_indexエイリアステンプレート
+================================
+
+概要
+----
+
+``[0, N - 1)``

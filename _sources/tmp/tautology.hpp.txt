@@ -1,0 +1,53 @@
+=============
+tautology.hpp
+=============
+
+.. _tmp-tautological_pred:
+
+tautological_predクラス
+=======================
+
+宣言
+----
+
+.. sourcecode:: cpp
+
+  template <class Type>
+  class tautological_pred;
+
+概要
+----
+
+常に ``true`` を返す :ref:`pred <term-pred>`。
+
+メンバ
+------
+
+.. cpp:member:: static const bool tautological_pred<Type>::value
+
+  常に ``true``
+
+.. _tmp-tautological_filter:
+
+tautological_filterクラス
+=========================
+
+宣言
+----
+
+.. sourcecode:: cpp
+
+  template <std::size_t Value>
+  class tautological_filter;
+
+概要
+----
+
+常に ``true`` を返す :ref:`filter <term-filter>`。
+
+メンバ
+------
+
+.. cpp:member:: static const bool tautological_filter<Value>::value
+
+  常に ``true``

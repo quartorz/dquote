@@ -1,0 +1,75 @@
+===========
+applier.hpp
+===========
+
+.. _tmp-applier:
+
+applierクラス
+=============
+
+宣言
+----
+
+.. sourcecode:: cpp
+
+  template <class... Types>
+  class applier;
+
+概要
+----
+| ``std::tuple`` を包含する関数オブジェクト。
+| 1つ目の引数に関数オブジェクトを渡すと、渡された関数オブジェクトをタプルの各要素に適用し、各結果のタプルを返す。
+| :ref:`make_applier <tmp-make_applier>` を用いてオブジェクトを生成することができる。
+
+テンプレート引数
+----------------
+
+====================== ====================
+引数名                 意味
+====================== ====================
+``class... Types``     保持したい要素の型
+====================== ====================
+
+メンバ
+------
+
+.. cpp:function:: applier<>::applier()
+.. cpp:function:: applier<Types...>::applier(Types... args)
+.. cpp:function:: applier<Types...>::applier(std::tuple<Types...> arg)
+
+  コンストラクタ。
+
+.. cpp:function:: std::tuple<Types...> &applier<Types...>::get()
+.. cpp:function:: const std::tuple<Types...> &applier<Types...>::get() const
+
+  包含しているタプルを得る。
+
+.. cpp:function:: applier<Types...>::result_tuple<Function, Args...> applier<Types...>::operator()(Function func, Args... args)
+
+  | タプルの各要素を1つ目の引数、 ``args...`` を2つ目以降の引数として ``func`` を呼び出す。
+  | ``std::size_t... Indices`` が ``0, ..., (sizeof...(Types) - 1)`` だとすると ``result_tuple<Function, Args...>(func(std::get<Indices>(get()), args...)...)``。
+
+.. cpp:type:: applier<Types...>::result_tuple<Function, Args...>
+
+  ``Function`` 型の関数オブジェクトを、 包含するタプルの各要素を1つ目の引数、 ``Args...`` 型オブジェクトを2つ目以降の引数として呼び出した時の結果をタプルにしたもの。
+
+.. _tmp-make_applier:
+
+make_applier関数
+================
+
+宣言
+----
+
+.. sourcecode:: cpp
+
+  template <class... Types>
+  applier<Types...> make_applier(Types... objects);
+
+  template <class... Types>
+  applier<Types...> make_applier(std::tuple<Types...> objects);
+
+概要
+----
+
+:ref:`applier <tmp-applier>` の構築を補助する関数

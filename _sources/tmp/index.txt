@@ -1,0 +1,17 @@
+===========
+tmp名前空間
+===========
+
+概要
+====
+ライブラリを作る際に書いたメタプログラムをまとめた名前空間
+
+ヘッダ一覧
+==========
+
+.. toctree::
+   :maxdepth: 2
+
+   index_tuple.hpp
+   tautology.hpp
+   applier.hpp
