@@ -11,7 +11,7 @@ namespace dquote{ namespace direct2d{
 
 	namespace detail{
 
-		__declspec(selectany) std::unique_ptr<::dquote::direct2d::factory> factory;
+		__declspec(selectany) ::std::unique_ptr<::dquote::direct2d::factory> factory;
 
 	}
 

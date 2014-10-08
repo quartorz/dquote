@@ -2,7 +2,7 @@
 
 #include <type_traits>
 
-#define DQUOTE_DECL_HAS_TYPE(t) \
+#define DQUOTE_DECLARE_HAS_TYPE(t) \
 	template <class Type>\
 	class has_ ## t{\
 		template <class T, class U = typename T::t>\
@@ -14,7 +14,7 @@
 		static const bool value = type::value;\
 	};
 
-#define DQUOTE_DECL_HAS_NON_TYPE(f)\
+#define DQUOTE_DECLARE_HAS_NON_TYPE(f)\
 	template <class Type>\
 	class has_ ## f{\
 		template <class T>\

@@ -10,20 +10,16 @@
 
 #endif
 
-#include "tmp/has_xxx.hpp"
-
-#define DQUOTE_DECLARE_BINDER(name) \
-	template <class T> \
+#define DQUOTE_DECLARE_BINDER(parent, name) \
 	struct name ## _binder{ \
-		using type = T; \
-		DQUOTE_DECL_HAS_NON_TYPE(name); \
+		using type = parent; \
 		template <class U, class... Args> \
-		typename std::enable_if<has_ ## name<U>::value>::type operator()(U &obj, T *this_, Args... args) \
+		auto operator()(U &obj, parent *this_, Args... args) -> decltype(obj.name(*this_, args...)) \
 		{ \
-			obj.name(*this_, args...); \
+			return obj.name(*this_, args...); \
 		} \
 		template <class U> \
-		typename std::enable_if<!has_ ## name<U>::value>::type operator()(U &, ...) \
+		void operator()(U &, ...) \
 		{ \
 		} \
 	}

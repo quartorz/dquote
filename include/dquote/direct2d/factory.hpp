@@ -76,7 +76,7 @@ namespace dquote{ namespace direct2d{
 
 	namespace detail{
 
-		extern std::unique_ptr<::dquote::direct2d::factory> factory;
+		extern ::std::unique_ptr<::dquote::direct2d::factory> factory;
 
 	}
 
