@@ -12,7 +12,7 @@
 	public:\
 		using type = decltype(check<Type>(0));\
 		static const bool value = type::value;\
-	};
+	}
 
 #define DQUOTE_DECLARE_HAS_NON_TYPE(f)\
 	template <class Type>\
@@ -23,4 +23,4 @@
 	public:\
 		using type = decltype(check(::std::declval<Type>()));\
 		static const bool value = type::value;\
-	};
+	}

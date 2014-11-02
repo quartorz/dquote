@@ -16,6 +16,16 @@ namespace dquote{ namespace base{
 
 		applier_type procs;
 
+		template <class = typename std::enable_if<sizeof...(Procs) != 0>::type>
+		procedure(Procs... p)
+			: procs(p...)
+		{
+		}
+
+		procedure()
+		{
+		}
+
 		template <template <class> class Pred>
 		class make_filter{
 		public:

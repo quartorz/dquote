@@ -4,6 +4,7 @@
 
 #include <cstddef>
 
+
 namespace dquote{ namespace tmp{
 
 	template <::std::size_t... I>
@@ -64,8 +65,8 @@ namespace dquote{ namespace tmp{
 		N,
 		typename ::std::enable_if<(N > 1)>::type
 	> : public concat<
-		make_filtered_index_range<Filter, Begin, N / 2 + N % 2>,
-		make_filtered_index_range<Filter, Begin + N / 2 + N % 2, N / 2>
+		typename make_filtered_index_range_impl<Filter, Begin, N / 2 + N % 2>::type,
+		typename make_filtered_index_range_impl<Filter, Begin + N / 2 + N % 2, N / 2>::type
 	>
 	{
 	};

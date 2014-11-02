@@ -4,6 +4,9 @@
 #include "../tmp/has_xxx.hpp"
 #include "../macro.hpp"
 
+#include <Windows.h>
+#include <windowsx.h>
+
 namespace dquote{ namespace win32{
 
 	template <class Derived, class... Procs>
@@ -11,6 +14,8 @@ namespace dquote{ namespace win32{
 		DQUOTE_DECLARE_BINDER(Derived, initialize);
 		DQUOTE_DECLARE_BINDER(Derived, uninitialize);
 		DQUOTE_DECLARE_BINDER(Derived, WindowProc);
+		DQUOTE_DECLARE_BINDER(Derived, on_close);
+		DQUOTE_DECLARE_BINDER(Derived, on_size);
 		
 		static LRESULT CALLBACK WindowProc0(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		{
@@ -144,6 +149,11 @@ namespace dquote{ namespace win32{
 			case WM_DESTROY:
 				static_cast<Derived*>(this)->uninitialize();
 				for_each<uninitialize_binder>();
+				break;
+			case WM_CLOSE:
+				for_each<on_close_binder>();
+			case WM_SIZE:
+				for_each<on_size_binder>(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
 				break;
 			}
 
