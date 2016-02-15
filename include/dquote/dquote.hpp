@@ -1,6 +1,6 @@
 #pragma once
 
-#include "detail/quote.hpp"
+#include <dquote/detail/dquote.hpp>
 
 #include <functional>
 

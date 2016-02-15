@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../tmp/has_xxx.hpp"
+#include <dquote/tmp/has_xxx.hpp>
 
 #include <Windows.h>
 
 namespace dquote{ namespace win32{
 
-	namespace aux_{
+	namespace detail{
 
 		/*DQUOTE_DECLARE_HAS_NON_TYPE(is_subclass);
 

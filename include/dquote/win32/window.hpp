@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../base/procedure.hpp"
-#include "../tmp/has_xxx.hpp"
-#include "../macro.hpp"
+#include <dquote/base/procedure.hpp>
+#include <dquote/tmp/has_xxx.hpp>
+#include <dquote/macro.hpp>
 
 #include <Windows.h>
 #include <windowsx.h>
@@ -11,11 +11,11 @@ namespace dquote{ namespace win32{
 
 	template <class Derived, class... Procs>
 	class window : public ::dquote::base::procedure<Procs...>{
-		DQUOTE_DECLARE_BINDER(Derived, initialize);
-		DQUOTE_DECLARE_BINDER(Derived, uninitialize);
-		DQUOTE_DECLARE_BINDER(Derived, WindowProc);
-		DQUOTE_DECLARE_BINDER(Derived, on_close);
-		DQUOTE_DECLARE_BINDER(Derived, on_size);
+		DQUOTE_DECLARE_BINDER(Derived, initialize)
+		DQUOTE_DECLARE_BINDER(Derived, uninitialize)
+		DQUOTE_DECLARE_BINDER(Derived, WindowProc, windowproc_binder)
+		DQUOTE_DECLARE_BINDER(Derived, on_close)
+		DQUOTE_DECLARE_BINDER(Derived, on_size)
 		
 		static LRESULT CALLBACK WindowProc0(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		{
@@ -113,18 +113,18 @@ namespace dquote{ namespace win32{
 			::DestroyWindow(hwnd);
 		}
 
-		::std::tuple<int, int> get_size()
+		::std::pair<int, int> get_size()
 		{
 			RECT rc;
 			::GetClientRect(hwnd, &rc);
-			return ::std::tuple<int, int>(rc.right, rc.bottom);
+			return{ rc.right, rc.bottom };
 		}
 
-		::std::tuple<int, int> get_position()
+		::std::pair<int, int> get_position()
 		{
 			RECT rc;
 			::GetWindowRect(hwnd, &rc);
-			return ::std::tuple<int, int>(rc.left, rc.top);
+			return{ rc.left, rc.top };
 		}
 
 		void set_title(const wchar_t *title)
@@ -159,7 +159,7 @@ namespace dquote{ namespace win32{
 
 			if(sizeof...(Procs) > 0){
 				LRESULT lresult = 0l;
-				if(!all_of<WindowProc_binder>(hwnd, msg, wParam, lParam, ::std::ref(lresult)))
+				if(!all_of<windowproc_binder>(hwnd, msg, wParam, lParam, ::std::ref(lresult)))
 					return lresult;
 			}
 

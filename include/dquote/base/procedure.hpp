@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../tmp/applier.hpp"
-#include "../tmp/tautology.hpp"
-#include "../tmp/index_tuple.hpp"
+#include <dquote/tmp/applier.hpp>
+#include <dquote/tmp/tautology.hpp>
+#include <dquote/tmp/index_tuple.hpp>
 
 #include <type_traits>
 #include <utility>

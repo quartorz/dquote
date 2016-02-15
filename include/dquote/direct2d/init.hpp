@@ -1,6 +1,6 @@
 #pragma once
 
-#include "factory.hpp"
+#include <dquote/direct2d/factory.hpp>
 
 #pragma comment(lib, "d2d1")
 #pragma comment(lib, "dwrite")

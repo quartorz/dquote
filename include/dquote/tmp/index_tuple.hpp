@@ -1,6 +1,6 @@
 #pragma once
 
-#include "tautology.hpp"
+#include <dquote/tmp/tautology.hpp>
 
 #include <cstddef>
 

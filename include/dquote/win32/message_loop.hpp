@@ -2,18 +2,19 @@
 
 #include <Windows.h>
 
-#include "../base/procedure.hpp"
-#include "../macro.hpp"
+#include <dquote/base/procedure.hpp>
+#include <dquote/macro.hpp>
 
 #include <chrono>
 #include <thread>
+#include <type_traits>
 
 namespace dquote{ namespace win32{
 
-	namespace aux_{
+	namespace detail{
 
-		template <class... Procs>
-		class message_loop_procedure: public ::dquote::base::procedure<Procs...>{
+		template <typename... Procs>
+		class message_loop_procedure : public ::dquote::base::procedure<Procs...> {
 			using base = ::dquote::base::procedure<Procs...>;
 
 			DQUOTE_DECLARE_BINDER(message_loop_procedure<Procs...>, on_key_down);
@@ -34,27 +35,96 @@ namespace dquote{ namespace win32{
 			}
 		};
 
+		template <typename F, bool>
+		class on_key_down_wrapper {
+			F f_;
+
+		public:
+			on_key_down_wrapper(F f)
+				: f_(f)
+			{
+			}
+
+			template <typename Proc>
+			bool on_key_down(Proc &, unsigned keycode)
+			{
+				return static_cast<bool>(f_(keycode));
+			}
+		};
+
+		template <typename F>
+		class on_key_down_wrapper<F, false> {
+			F f_;
+
+		public:
+			on_key_down_wrapper(F f)
+				: f_(f)
+			{
+			}
+
+			template <typename Proc>
+			bool on_key_down(Proc &, unsigned keycode)
+			{
+				f_(keycode);
+				return true;
+			}
+		};
+
+		template <typename F>
+		class on_no_message_wrapper {
+			F f_;
+
+		public:
+			on_no_message_wrapper(F f)
+				: f_(f)
+			{
+			}
+
+			void on_no_message(...)
+			{
+				f_();
+			}
+		};
+
 	}
 
-	template <class... Procs>
-	// アイドル時にfunctionsを呼び出す
+	template <typename F>
+	inline detail::on_key_down_wrapper<
+		F,
+		::std::is_convertible<::std::result_of_t<F(unsigned)>, bool>::value
+	>
+	key_down(F f)
+	{
+		return{ f };
+	}
+
+	template <typename F>
+	inline detail::on_no_message_wrapper<F> no_message(F f)
+	{
+		return{ f };
+	}
+
+	template <typename... Procs>
 	inline int message_loop(Procs... procs)
 	{
-		auto procedure = aux_::message_loop_procedure<Procs...>(procs...);
+		auto procedure = detail::message_loop_procedure<Procs...>(procs...);
 
 		BOOL ret;
 		MSG msg;
-		do{
-			if(::PeekMessageW(&msg, nullptr, 0, 0, PM_NOREMOVE)){
+		do {
+			if (::PeekMessageW(&msg, nullptr, 0, 0, PM_NOREMOVE)) {
 				ret = ::GetMessageW(&msg, nullptr, 0, 0);
-				if(ret == 0 || ret == -1)
+				if (ret == 0 || ret == -1)
 					break;
+				if (msg.message == WM_KEYDOWN
+					&& !procedure.on_key_down(static_cast<unsigned>(msg.wParam)))
+					continue;
 				::TranslateMessage(&msg);
 				::DispatchMessageW(&msg);
-			}else{
+			} else {
 				procedure.on_no_message();
 			}
-		}while(msg.message != WM_QUIT);
+		} while (msg.message != WM_QUIT);
 
 		return msg.wParam;
 	}
@@ -63,7 +133,7 @@ namespace dquote{ namespace win32{
 	{
 		BOOL ret;
 		MSG msg;
-		while((ret = ::GetMessageW(&msg, nullptr, 0, 0)) == 1){
+		while ((ret = ::GetMessageW(&msg, nullptr, 0, 0)) == 1) {
 			::TranslateMessage(&msg);
 			::DispatchMessageW(&msg);
 		}
@@ -71,7 +141,7 @@ namespace dquote{ namespace win32{
 		return msg.wParam;
 	}
 
-	template <class Window, unsigned ID = UINT_MAX /* std::numeric_limits<unsigned>::max() */, unsigned FPS = 60>
+	template <typename Window, unsigned ID = UINT_MAX /* std::numeric_limits<unsigned>::max() */, unsigned FPS = 60>
 	class frame_controller{
 		Window &window;
 		std::chrono::system_clock::time_point first;
@@ -90,13 +160,13 @@ namespace dquote{ namespace win32{
 
 			milliseconds duration;
 
-			if(count == 0){
-				if(flag){
+			if (count == 0) {
+				if (flag) {
 					flag = false;
-				}else{
+				} else {
 					duration = duration_cast<milliseconds>(first - system_clock::now()) + seconds(1);
 				}
-			}else{
+			} else {
 				duration = duration_cast<milliseconds>(first - system_clock::now()) + count * milliseconds(1000) / FPS;
 			}
 
@@ -116,7 +186,7 @@ namespace dquote{ namespace win32{
 		}
 	};
 
-	template <unsigned ID = UINT_MAX, unsigned FPS = 60, class Window>
+	template <unsigned ID = UINT_MAX, unsigned FPS = 60, typename Window>
 	frame_controller<Window, ID, FPS> make_frame_controller(Window &window)
 	{
 		return frame_controller<Window, ID, FPS>(window);

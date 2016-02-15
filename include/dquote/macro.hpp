@@ -1,25 +1,26 @@
 #pragma once
 
-#if defined _MSC_VER
-
-#define DQUOTE_SELECTANY __declspec(selectany)
-
+#if defined(_MSC_VER)
+# define DQUOTE_SELECTANY __declspec(selectany)
 #else
-
-#define DQUOTE_SELECTANY __attribute__((selectany))
-
+# define DQUOTE_SELECTANY __attribute__((selectany))
 #endif
 
-#define DQUOTE_DECLARE_BINDER(parent, name) \
-	struct name ## _binder{ \
+#include <dquote/pp/overload.hpp>
+
+#define DQUOTE_DECLARE_BINDER(...) DQUOTE_PP_OVERLOAD(DQUOTE_DECLARE_BINDER_, __VA_ARGS__)
+
+#define DQUOTE_DECLARE_BINDER_2(parent, funcname) DQUOTE_DECLARE_BINDER_3(parent, funcname, funcname ## _binder)
+#define DQUOTE_DECLARE_BINDER_3(parent, funcname, bindername) \
+	struct bindername { \
 		using type = parent; \
 		template <class U, class... Args> \
-		auto operator()(U &obj, parent *this_, Args... args) -> decltype(obj.name(*this_, args...)) \
+		auto operator()(U &obj, parent *this_, Args... args) -> decltype(obj.funcname(*this_, args...)) \
 		{ \
-			return obj.name(*this_, args...); \
+			return obj.funcname(*this_, args...); \
 		} \
 		template <class U> \
 		void operator()(U &, ...) \
 		{ \
 		} \
-	}
+	};
